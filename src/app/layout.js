@@ -1,36 +1,35 @@
-import { Great_Vibes, Playfair_Display, Lato } from "next/font/google";
+import { Cormorant_Garamond, Dancing_Script, Jost } from "next/font/google";
 import "./globals.css";
 
-const greatVibes = Great_Vibes({
-  variable: "--font-great-vibes",
-  weight: "400",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
+  weight: ["300", "400", "600"],
+  style: ["normal", "italic"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const dancing = Dancing_Script({
+  variable: "--font-dancing",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
-const lato = Lato({
-  variable: "--font-lato",
-  weight: ["300", "400", "700"],
+const jost = Jost({
+  variable: "--font-jost",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata = {
-  title: "Menopause Anonymous — Sunday Healing Circle",
+  title: "Menopause Anonymous — Women Supporting Women Through Change",
   description:
-    "A safe, supportive space where women gather to share openly about menopause & life transitions. Every Sunday at 4:00 PM Central Time.",
+    "A safe, anonymous space where women gather to share, understand, and navigate one of life's most powerful transitions — together. Every Sunday at 4 PM CT.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${greatVibes.variable} ${playfair.variable} ${lato.variable} h-full`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${cormorant.variable} ${dancing.variable} ${jost.variable}`}>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }
