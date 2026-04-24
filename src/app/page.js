@@ -52,15 +52,10 @@ export default function Home() {
       <section className="hero">
         <div className="hero-img-side">
           <img
-            src="https://images.unsplash.com/photo-1566616213894-2d4e1baee5d8?w=900&auto=format&fit=crop&q=85"
+            src="/hero.png"
             alt="Mature woman"
           />
-          <div className="hero-float-logo">
-            <Image src="/logo2.jpeg" alt="MA" width={64} height={64} style={{ objectFit: "contain" }} />
-            <div className="hero-float-logo-text">
-              Menopause Anonymous<small>Women Supporting Women</small>
-            </div>
-          </div>
+
         </div>
         <div className="hero-text-side">
           <div className="hero-eyebrow reveal">

@@ -1560,6 +1560,10 @@ footer {
 
 /* ── RESPONSIVE: 768px (mobile) ── */
 @media (max-width: 768px) {
+  .hero-img-side::after {
+    display: none;
+  }
+
   nav {
     padding: 0 18px;
   }
@@ -1596,16 +1600,7 @@ footer {
   }
 
   .hero-float-logo {
-    bottom: -14px;
-    left: 12px;
-    padding: 12px 16px;
-    gap: 10px;
-    border-radius: 14px;
-  }
-
-  .hero-float-logo img {
-    width: 46px !important;
-    height: 46px !important;
+    display: none;
   }
 
   .hero-float-logo-text {
