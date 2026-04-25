@@ -165,7 +165,7 @@ export default function Home() {
           <div className="why-visual reveal" style={{ position: "relative" }}>
             <div className="why-main-img">
               <img
-                src="/lady2.jpg"
+                src="/mmahero.png"
                 alt="Mature woman in reflection"
               />
             </div>
@@ -329,7 +329,7 @@ export default function Home() {
           </div>
           <div className="values-visual reveal d2" style={{ position: "relative" }}>
             <div className="val-main-img">
-              <Image src="/lady.jpg" alt="Background" width={600} height={560} style={{ width: "100%", height: 560, objectFit: "cover", objectPosition: "center", display: "block" }} />
+              <Image src="/MMA.png" alt="Background" width={600} height={560} style={{ width: "100%", height: 560, objectFit: "cover", objectPosition: "center", display: "block" }} />
             </div>
             <div className="val-float">
               <div className="val-float-label">Our Commitment</div>
@@ -346,7 +346,7 @@ export default function Home() {
       <section className="cta-section">
         <div style={{ position: "absolute", inset: 0 }}>
           <img
-            src="https://images.unsplash.com/photo-1596367407372-96cb88503db6?w=1600&auto=format&fit=crop&q=85"
+            src="/mmaImg.png"
             alt="Pink roses"
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
@@ -354,8 +354,7 @@ export default function Home() {
         </div>
         <div className="cta-inner">
           <div className="cta-logos reveal">
-            <Image className="rounded-full" src="/logo.jpeg" alt="MA Logo" width={80} height={80} style={{ height: 80, width: "auto", filter: "drop-shadow(0 4px 16px rgba(0,0,0,0.3))" }} />
-            <Image src="/logo2.jpeg" alt="MA Logo 2" width={80} height={80} style={{ height: 80, width: "auto", filter: "drop-shadow(0 4px 16px rgba(0,0,0,0.3))", borderRadius: "50%" }} />
+
           </div>
           <h2 className="cta-title reveal d1">You Are Welcome<br /><strong>Exactly As You Are.</strong></h2>
           <div className="cta-affirmations reveal d1">
