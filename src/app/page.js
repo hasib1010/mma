@@ -6,6 +6,7 @@ const ZOOM_LINK = "https://zoom.us/j/349786148?pwd=008895";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [litTab, setLitTab] = useState("readings");
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -28,6 +29,7 @@ export default function Home() {
           <a href="#what-is-ma">About</a>
           <a href="#why-ma">Why MA</a>
           <a href="#what-we-offer">What We Offer</a>
+          <a href="#literature">Literature</a>
           <a href="#meetings">Meetings</a>
           <a href="#meetings" className="nav-cta">Join Us</a>
         </div>
@@ -43,6 +45,7 @@ export default function Home() {
           <a href="#what-is-ma" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#why-ma" onClick={() => setMenuOpen(false)}>Why MA</a>
           <a href="#what-we-offer" onClick={() => setMenuOpen(false)}>What We Offer</a>
+          <a href="#literature" onClick={() => setMenuOpen(false)}>Literature</a>
           <a href="#meetings" onClick={() => setMenuOpen(false)}>Meetings</a>
           <a href="#meetings" className="nav-cta" onClick={() => setMenuOpen(false)}>Join Us</a>
         </div>
@@ -264,6 +267,121 @@ export default function Home() {
 
       <div className="gold-rule" />
 
+      {/* ── LITERATURE & STEP WORKING JOURNAL ── */}
+      <section id="literature" className="lit-section">
+        <div className="lit-inner">
+          <div className="reveal"><div className="section-kicker"><span>Resources &amp; Literature</span></div></div>
+          <h2 className="s-title reveal d1">Step Working Journal <em>&amp; Literature</em></h2>
+          <p className="s-lead reveal d2">Tools to support your healing journey — a personal journal, meeting readings, and books to guide you.</p>
+          <div className="lit-grid">
+
+            {/* ── STEP WORKING JOURNAL PANEL ── */}
+            <div className="lit-journal reveal d1">
+              <div className="lit-journal-badge">Available on Amazon</div>
+              <div className="lit-journal-kicker">Step Working Journal</div>
+              <div className="lit-journal-title">The MA Step Working Journal</div>
+              <p className="lit-journal-body">
+                A guided journal designed specifically for women in Menopause Anonymous — walk through
+                all 12 steps with reflection prompts, space to write your story, and affirmations to
+                support your healing at every stage of this transition.
+              </p>
+              <a
+                className="lit-journal-btn"
+                href="https://www.amazon.com/s?k=menopause+anonymous+step+working+journal"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.5 7h13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Get it on Amazon
+              </a>
+            </div>
+
+            {/* ── LITERATURE WINDOW ── */}
+            <div className="lit-window reveal d2">
+              <div className="lit-window-tabs">
+                {[
+                  { key: "readings", label: "Meeting Readings" },
+                  { key: "books",    label: "Books" },
+                  { key: "resources", label: "Resources" },
+                ].map(({ key, label }) => (
+                  <button
+                    key={key}
+                    className={`lit-tab-btn${litTab === key ? " active" : ""}`}
+                    onClick={() => setLitTab(key)}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="lit-tab-content">
+                {litTab === "readings" && [
+                  { title: "The MA Preamble", desc: "A brief statement read at the opening of every MA meeting to welcome all women and set the tone of the circle." },
+                  { title: "The 12 Steps of MA", desc: "The guiding principles of Menopause Anonymous — a structured path through acceptance, healing, and personal growth." },
+                  { title: "How It Works", desc: "A reading that explains the foundation of the MA program and what women can expect from participating in the circle." },
+                  { title: "The Promises of MA", desc: "Affirmations of what becomes possible when women commit to the MA program and support one another honestly." },
+                ].map((item, i) => (
+                  <div className="lit-item" key={item.title}>
+                    <div className="lit-item-num">{i + 1}</div>
+                    <div>
+                      <div className="lit-item-title">{item.title}</div>
+                      <div className="lit-item-desc">{item.desc}</div>
+                    </div>
+                  </div>
+                ))}
+
+                {litTab === "books" && [
+                  { title: "The MA Step Working Journal", desc: "The official companion journal for working through all 12 steps of Menopause Anonymous. Available on Amazon.", link: "https://www.amazon.com/s?k=menopause+anonymous+step+working+journal", linkLabel: "Find on Amazon" },
+                  { title: "More Titles Coming Soon", desc: "Additional recommended reading for women navigating the menopause transition will be listed here." },
+                ].map((item, i) => (
+                  <div className="lit-item" key={item.title}>
+                    <div className="lit-item-num">{i + 1}</div>
+                    <div>
+                      <div className="lit-item-title">{item.title}</div>
+                      <div className="lit-item-desc">{item.desc}</div>
+                      {item.link && (
+                        <a className="lit-item-link" href={item.link} target="_blank" rel="noopener noreferrer">
+                          {item.linkLabel}
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ))}
+
+                {litTab === "resources" && [
+                  { title: "Weekly Sunday Meeting", desc: "Every Sunday at 4:00 PM Central Time via Zoom. Meeting ID: 349 786 148 · Password: 008895.", link: ZOOM_LINK, linkLabel: "Join on Zoom" },
+                  { title: "MA Website", desc: "Visit MAAnonymous.org for news, updates, and more information about Menopause Anonymous.", link: "https://maanonymous.org", linkLabel: "Visit MAAnonymous.org" },
+                ].map((item, i) => (
+                  <div className="lit-item" key={item.title}>
+                    <div className="lit-item-num">{i + 1}</div>
+                    <div>
+                      <div className="lit-item-title">{item.title}</div>
+                      <div className="lit-item-desc">{item.desc}</div>
+                      {item.link && (
+                        <a className="lit-item-link" href={item.link} target="_blank" rel="noopener noreferrer">
+                          {item.linkLabel}
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <div className="gold-rule" />
+
       {/* ── MEETINGS ── */}
       <section id="meetings" className="meeting-section">
         <div className="meeting-inner">
@@ -382,6 +500,7 @@ export default function Home() {
             <a href="#what-is-ma">What is MA?</a>
             <a href="#why-ma">Why MA Exists</a>
             <a href="#what-we-offer">What We Offer</a>
+            <a href="#literature">Literature &amp; Journal</a>
             <a href="#meetings">Find a Meeting</a>
           </div>
           <div className="footer-col">
